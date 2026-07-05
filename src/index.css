@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FCF9F2;
+  --color-card-white: #FFFDF9;
+  --color-maroon: #4A121A;
+  --color-maroon-light: #7A202C;
+  --color-maroon-dark: #2F070C;
+  --color-saffron: #D96B27;
+  --color-saffron-light: #E88343;
+  --color-saffron-dark: #B55416;
+  --color-gold: #C5A880;
+  --color-gold-bright: #D4AF37;
+  --color-charcoal: #5C5549;
+  
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Outfit", "Inter", sans-serif;
+
+  --animate-diya-flicker: diya-flicker 2.5s infinite ease-in-out;
+  --animate-soft-fade: fade-in 0.6s ease-out;
+  --animate-pulse-slow: pulse-slow 3s infinite ease-in-out;
+  
+  @keyframes diya-flicker {
+    0%, 100% {
+      transform: scale(1) rotate(-1deg);
+      opacity: 0.9;
+      filter: drop-shadow(0 2px 4px rgba(217, 107, 39, 0.4));
+    }
+    50% {
+      transform: scale(1.08) rotate(1.5deg);
+      opacity: 1;
+      filter: drop-shadow(0 4px 10px rgba(217, 107, 39, 0.7));
+    }
+    75% {
+      transform: scale(0.95) rotate(-0.5deg);
+      opacity: 0.85;
+      filter: drop-shadow(0 2px 3px rgba(217, 107, 39, 0.3));
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+}
+
+/* Custom styles for invitation-card borders & dividers */
+.card-border-gold {
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  position: relative;
+}
+
+.card-border-gold::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(197, 168, 128, 0.15);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card-border-maroon {
+  border: 1px solid rgba(74, 18, 26, 0.2);
+  position: relative;
+}
+
+.card-border-maroon::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(74, 18, 26, 0.08);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Indian Classical Accent Divider (Devanagari/Urdu-inspired layout divider) */
+.cultural-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #C5A880;
+  margin: 2rem 0;
+}
+
+.cultural-divider::before,
+.cultural-divider::after {
+  content: '';
+  height: 1px;
+  flex-grow: 1;
+  background: linear-gradient(to right, transparent, rgba(197, 168, 128, 0.5), transparent);
+}
+
+/* Paper Grain Texture overlay */
+.bg-paper {
+  background-color: #FCF9F2;
+  background-image: radial-gradient(rgba(197, 168, 128, 0.05) 1px, transparent 0),
+                    radial-gradient(rgba(197, 168, 128, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Custom scrollbars for clean dashboards */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FCF9F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5A880;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A121A;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-diya-glow {
+  animation: diya-flicker 2.5s infinite ease-in-out;
+}
